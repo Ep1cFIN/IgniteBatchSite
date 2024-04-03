@@ -124,7 +124,7 @@ export default function Login({
 
 import Image from "next/image"
 
-import { Button } from "@/components/ui/button"
+import LoginButton from "./login-button"
 
 export default function Dashboard() {
   return (
@@ -134,13 +134,11 @@ export default function Dashboard() {
           <div className="grid gap-2 text-center">
             <h1 className="text-3xl font-bold">Login</h1>
             <p className="text-balance text-muted-foreground">
-              Enter your email below to login to your account
+              Log in with your Aaltoes account to access the Ignite dashboard.
             </p>
           </div>
           <div className="grid gap-4">
-            <Button variant="outline" className="w-full">
-              Login with Google
-            </Button>
+            <LoginButton/>
           </div>
           <div className="mt-4 text-center text-sm">
             This is only meant for Ignite batch participants. If you are a batch member and cant log in, please contact the admin.
@@ -149,7 +147,7 @@ export default function Dashboard() {
       </div>
       <div className="hidden bg-muted lg:block">
         <Image
-          src="/kuva.jpg"
+          src="/twitter-image.png"
           alt="Image"
           width="1920"
           height="1080"
