@@ -1,5 +1,10 @@
 
 
 export default function Page() {
-    return <div>Hello, World!</div>
+    return (
+        <div className="p-4">
+            <h1>Page</h1>
+            <div>Hello, World!</div>
+        </div>
+    )
 }

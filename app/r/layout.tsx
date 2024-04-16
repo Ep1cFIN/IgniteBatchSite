@@ -47,8 +47,8 @@ export default function DashboardLayout({
                 </header>
                 <main className="grow-[10] h-full w-full">
                     {children}
-                    <Footer/>
                 </main>
+                <Footer/>
             </div>
         </section>
     );
