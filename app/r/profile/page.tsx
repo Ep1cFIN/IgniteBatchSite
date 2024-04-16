@@ -7,7 +7,7 @@ const name = async () => {
         data: { user },
     } = await supabase.auth.getUser();
     
-    return user?.identities?.[0]?.identity_data?.full_name || user?.email || "Unknown";
+    return user?.identities?.[0]?.identity_data?.full_name || user?.email || "Your name here";
     
 }
 
