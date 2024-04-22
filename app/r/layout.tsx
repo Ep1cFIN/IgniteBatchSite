@@ -26,11 +26,11 @@ export default function DashboardLayout({
 
     return (
         <section className="flex flex-row w-dvw">
-            <section className="self-start inset-y-0 left-0 min-w-max w-[350px] h-dvh max-h-screen border-r border-red-300">
+            <section className="sticky self-start inset-y-0 left-0 min-w-max w-[350px] h-dvh max-h-screen border-r-2 border-red-300">
                 <DashboardNav />
             </section>
             <div className="w-full flex flex-col items-center ">
-                <header className="w-full p-6 grow-[1] flex flex-row min-h-[100px] max-h-[30vh] justify-around items-center border-b-2 border-red-300">
+                <header className="sticky w-full p-6 grow-[1] flex flex-row min-h-[100px] max-h-[30vh] justify-around items-center border-b-2 border-red-300">
                     <ThemeToggle/>
                     <div className="h-full w-[50%] relative bg-">
                         <Image 

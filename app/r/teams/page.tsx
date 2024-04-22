@@ -1,6 +1,9 @@
+import UsersTable from "@/components/UsersTable";
 
-const HelloWorld= () => {
-    return <div>Hello World! (teams)</div>;
+const TeamsView= () => {
+    return (
+        <UsersTable/>
+    );
 };
 
-export default HelloWorld;
+export default TeamsView;
