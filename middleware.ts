@@ -7,7 +7,7 @@ export async function middleware(request: NextRequest) {
   const supabase = createClient();
   const { data, error } = await supabase.auth.getUser()
 
-  if ((error || !data?.user) && request.nextUrl.pathname.startsWith('/r')) {
+  if ((error || !data?.user) && (request.nextUrl.pathname.startsWith('/r') && request.nextUrl.pathname.startsWith('/first-login'))) {
     return NextResponse.redirect(new URL('/login', request.nextUrl))
   }
 
