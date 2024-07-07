@@ -5,13 +5,11 @@ import { redirect } from "next/navigation";
 
 export async function middleware(request: NextRequest) {
   const supabase = createClient();
-  const { data, error } = await supabase.auth.getUser()
+  const { data: userData, error: userError } = await supabase.auth.getUser()
 
-  if ((error || !data?.user) && (request.nextUrl.pathname.startsWith('/r') && request.nextUrl.pathname.startsWith('/first-login'))) {
+  if ((userError || !userData?.user) && (request.nextUrl.pathname.startsWith('/r') && request.nextUrl.pathname.startsWith('/first-login'))) {
     return NextResponse.redirect(new URL('/login', request.nextUrl))
   }
-
-  return await updateSession(request);
 }
 
 export const config = {

@@ -103,35 +103,23 @@ export type Database = {
       profiles: {
         Row: {
           avatar_url: string | null
-          description: string | null
           email: string | null
-          first_name: string | null
-          founder_profile: Database["public"]["Enums"]["founder_profile"]
           id: string
-          last_name: string | null
-          nickname: string | null
+          name: string | null
           team_id: number | null
         }
         Insert: {
           avatar_url?: string | null
-          description?: string | null
           email?: string | null
-          first_name?: string | null
-          founder_profile: Database["public"]["Enums"]["founder_profile"]
           id: string
-          last_name?: string | null
-          nickname?: string | null
+          name?: string | null
           team_id?: number | null
         }
         Update: {
           avatar_url?: string | null
-          description?: string | null
           email?: string | null
-          first_name?: string | null
-          founder_profile?: Database["public"]["Enums"]["founder_profile"]
           id?: string
-          last_name?: string | null
-          nickname?: string | null
+          name?: string | null
           team_id?: number | null
         }
         Relationships: [
@@ -256,7 +244,6 @@ export type Database = {
       app_permission: "users.create" | "dashboard.access"
       app_role: "ignite" | "startup" | "admin" | "coach"
       coach_type: "Founder" | "Operator" | "Investor" | "Other"
-      founder_profile: "Technical" | "Product/Design" | "Business" | "Other"
       user_role: "alumni" | "batch-member" | "coach" | "director" | "admin"
     }
     CompositeTypes: {
