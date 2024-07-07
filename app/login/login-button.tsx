@@ -6,7 +6,6 @@ import { createClient } from "@/utils/supabase/client";
 
 async function signIn() {
   const redirectUrl = window.location.origin + "/auth/callback";
-  console.log(redirectUrl);
   const supabase = createClient();
   const { error } = await supabase.auth.signInWithOAuth({
     provider: "google",
