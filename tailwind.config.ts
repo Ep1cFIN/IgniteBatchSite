@@ -72,6 +72,10 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      fontFamily: {
+        montserrat: ['var(--font-montserrat)'],
+        k2d: ['var(--font-k2d)'],
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

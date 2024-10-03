@@ -4,13 +4,10 @@ import { type CookieOptions, createServerClient } from '@supabase/ssr'
 
 export async function GET(request: Request) {
 
-
-console.log("this ran")
-
   const { searchParams, origin } = new URL(request.url)
   const code = searchParams.get('code')
   // if "next" is in param, use it as the redirect URL
-  const next = searchParams.get('next') ?? '/'
+  const next = searchParams.get('next') ?? '/r/'
 
   if (code) {
     const cookieStore = cookies()
@@ -33,6 +30,17 @@ console.log("this ran")
     )
     const { error } = await supabase.auth.exchangeCodeForSession(code)
     if (!error) {
+      const { data: profile, error: profileError } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', (await supabase.auth.getUser()).data?.user?.id)
+        .single()
+
+      if (profileError || !profile) {
+        // Redirect to the first-time login form if the profile is not found
+        return NextResponse.redirect(`${origin}/first-login`)
+      }
+
       return NextResponse.redirect(`${origin}${next}`)
     }
   }

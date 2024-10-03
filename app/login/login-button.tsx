@@ -2,14 +2,15 @@
 
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/utils/supabase/client";
-import { redirect } from "next/navigation";
+
 
 async function signIn() {
+  const redirectUrl = window.location.origin + "/auth/callback";
   const supabase = createClient();
   const { error } = await supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
-      redirectTo: `http://localhost:3000/auth/callback`,
+      redirectTo: redirectUrl,
       queryParams: {
         prompt: "select_account",
       },
